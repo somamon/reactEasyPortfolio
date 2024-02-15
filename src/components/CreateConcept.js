@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { doc, setDoc } from "firebase/firestore"; 
+import {db,auth} from "../firebase"
 
 const CreateConcept = () => {
   const [conceptValue, setConceptValue] = useState('');
@@ -31,9 +33,23 @@ const CreateConcept = () => {
 
   // 概念の作成
   const renderResult = conceptValue !== '' ? conceptValue + randomString : null;
-  const handleCreateConcept = () => {
+  const handleCreateConcept = async() => {
     // DBに保存する
+    const conceptDocRef = doc(db, 'concepts', renderResult); // 'concepts'はFirestoreのコレクション名
 
+    try {
+      await setDoc(conceptDocRef, {
+        conceptValue: renderResult,
+        timestamp: new Date(),
+        author: {
+          username: auth.currentUser.displayName,
+          id: auth.currentUser.uid
+        }
+      });
+      console.log('概念がデータベースに追加されました。');
+    } catch (error) {
+      console.error('概念の追加に失敗しました:', error);
+    }
     // 作成後、概念の値をリセットする
     setConceptValue('');
   };
