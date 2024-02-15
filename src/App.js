@@ -4,10 +4,12 @@ import Home from './components/Home';
 import Logout from './components/Logout';
 import Login from './components/Login';
 import CreateConcept from './components/CreateConcept';
+import Header from './components/Header';
 
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/createconcept" element={<CreateConcept />}></Route>
