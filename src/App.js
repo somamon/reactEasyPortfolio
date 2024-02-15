@@ -5,15 +5,17 @@ import Logout from './components/Logout';
 import Login from './components/Login';
 import CreateConcept from './components/CreateConcept';
 import Header from './components/Header';
+import { useState } from 'react';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/createconcept" element={<CreateConcept />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}></Route>
         <Route path="/logout" element={<Logout />}></Route>
       </Routes>
     </Router>
