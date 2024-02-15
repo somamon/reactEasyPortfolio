@@ -11,7 +11,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   return (
     <Router>
-      <Header />
+      <Header isAuth={isAuth}/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/createconcept" element={<CreateConcept />}></Route>
