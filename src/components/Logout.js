@@ -16,7 +16,6 @@ const Logout = ({setIsAuth}) => {
   
   return (
     <div>
-      <p>ログインしてみる</p>
       <button onClick={logout}>ログアウト</button>
     </div>
   )
