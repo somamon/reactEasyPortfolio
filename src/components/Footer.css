@@ -1,0 +1,10 @@
+.create-concept-footer {
+    background: antiquewhite;
+    text-align: center;
+    width: 100%;
+    height: 5%;
+}
+
+.create-concept-footer p {
+    margin: 0px;
+}

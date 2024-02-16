@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDocs, collection, onSnapshot, deleteDoc } from 'firebase/firestore';
 import { db, auth} from '../firebase'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import "./Home.css"
+import { faHouse} from '@fortawesome/free-solid-svg-icons'
 
 const Home = () => {
   const [concepts, setConcepts] = useState([]);
@@ -34,11 +37,17 @@ const Home = () => {
 
 
   return (
-    <div>
-      <h2>ホーム</h2>
+    <div className='read-content'>
+      <h2>サイト説明</h2>
+      <p>CreateConceptは、"概念"を作成するのを手伝うサイトです。</p>
+      <p>あなたが好きなものを入力すると、それに付随した文言がランダムで追加されます。</p>
+      <p>例:カラオケと入力すると、"カラオケを探求する"という文言が表示される</p>
+      <p>ぜひCreateConceptで新しい概念を探してみましょう</p>
+      <div className='read-content-homeicon'><FontAwesomeIcon icon={faHouse}  style={{ width: '300px', height: '300px' }} /></div>
+      <p>新概念</p>
       <ul>
         {concepts.map((concept) => (
-          <li key={concept.id}>{concept.conceptValue}{concept.author.username}{concept.author.id === auth.currentUser?.uid && (<button onClick={() => handleDelete(concept.id)}>概念を忘れ去る</button>)}</li>
+          <li key={concept.id} className="concept-container">{concept.conceptValue}<br/>作者名:{concept.author.username}{concept.author.id === auth.currentUser?.uid && (<button onClick={() => handleDelete(concept.id)}>概念を忘れ去る</button>)}</li>
         ))}
       </ul>
     </div>

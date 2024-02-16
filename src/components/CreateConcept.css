@@ -1,0 +1,14 @@
+.create-concept-wrap {
+    background: aliceblue;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.create-concept-wrap h1 {
+    margin: 0px;
+}
+
+.create-concept-wrap:hover .read-content-homeicon svg {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(360deg);
+}

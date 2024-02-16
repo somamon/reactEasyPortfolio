@@ -1,0 +1,9 @@
+.logout-form {
+    background: aliceblue;
+    height: 95vh;
+    text-align: center;
+}
+
+.logout-form p {
+    margin: 0;
+}

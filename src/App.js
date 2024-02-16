@@ -5,6 +5,7 @@ import Logout from './components/Logout';
 import Login from './components/Login';
 import CreateConcept from './components/CreateConcept';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import { useState } from 'react';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}></Route>
         <Route path="/logout" element={<Logout setIsAuth={setIsAuth}/>}></Route>
       </Routes>
+      <Footer/>
     </Router>
   );
 }

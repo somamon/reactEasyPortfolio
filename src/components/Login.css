@@ -1,0 +1,9 @@
+.login-form {
+    background: aliceblue;
+    height: 95vh;
+    text-align: center;
+}
+
+.login-form p {
+    margin: 0px;
+}

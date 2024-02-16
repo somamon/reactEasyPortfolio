@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { doc, setDoc } from "firebase/firestore"; 
 import {db,auth} from "../firebase"
 import { useNavigate } from 'react-router-dom';
+import "./CreateConcept.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsToCircle} from '@fortawesome/free-solid-svg-icons'
 
 const CreateConcept = ({isAuth}) => {
   const [conceptValue, setConceptValue] = useState('');
@@ -62,8 +65,9 @@ const CreateConcept = ({isAuth}) => {
     }
   })
   return (
-    <div className='CreateConceptWrap'>
+    <div className='create-concept-wrap'>
       <h1>新概念を作成する</h1>
+      <div className='read-content-homeicon'><FontAwesomeIcon icon={faArrowsToCircle}  style={{ width: '300px', height: '300px' }} /></div>
       <h4>好きなものを入力してね</h4>
       <input
         type="text"
