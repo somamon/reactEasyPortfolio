@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { doc, setDoc } from "firebase/firestore"; 
 import {db,auth} from "../firebase"
+import { useNavigate } from 'react-router-dom';
 
-const CreateConcept = () => {
+const CreateConcept = ({isAuth}) => {
   const [conceptValue, setConceptValue] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setConceptValue(e.target.value);
@@ -52,6 +54,7 @@ const CreateConcept = () => {
     }
     // 作成後、概念の値をリセットする
     setConceptValue('');
+    navigate("/");
   };
 
   return (
