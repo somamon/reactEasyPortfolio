@@ -14,7 +14,7 @@ function App() {
       <Header isAuth={isAuth}/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/createconcept" element={<CreateConcept />}></Route>
+        <Route path="/createconcept" element={<CreateConcept  isAuth={isAuth}/>}></Route>
         <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}></Route>
         <Route path="/logout" element={<Logout setIsAuth={setIsAuth}/>}></Route>
       </Routes>

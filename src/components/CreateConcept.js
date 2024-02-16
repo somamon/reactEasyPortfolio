@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { doc, setDoc } from "firebase/firestore"; 
 import {db,auth} from "../firebase"
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +56,11 @@ const CreateConcept = ({isAuth}) => {
     setConceptValue('');
     navigate("/");
   };
-
+  useEffect(() => {
+    if (!isAuth){
+      navigate("/")
+    }
+  })
   return (
     <div className='CreateConceptWrap'>
       <h1>新概念を作成する</h1>
