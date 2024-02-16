@@ -8,3 +8,5 @@ CRD機能を備えた簡単なポートフォリオです。(Uはない)
 
 と"ユーザが入力した文字"+"ソースコードで格納している文字列"
 で保存される。
+## アプリのURL
+https://main--mellifluous-daffodil-ebbfee.netlify.app/
