@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { doc, getDocs, collection, onSnapshot } from 'firebase/firestore';
+import { doc, getDocs, collection, onSnapshot, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase'; 
 
 const Home = () => {
@@ -28,13 +28,17 @@ const Home = () => {
 
     return () => unsubscribe();
   }, []);
+  const handleDelete = async (id) => {
+    await deleteDoc(doc(db, "concepts", id));
+  };
+
 
   return (
     <div>
       <h2>ホーム</h2>
       <ul>
         {concepts.map((concept) => (
-          <li key={concept.id}>{concept.conceptValue}{concept.author.username}</li>
+          <li key={concept.id}>{concept.conceptValue}{concept.author.username}<button onClick={() => handleDelete(concept.id)}>概念を忘れ去る</button></li>
         ))}
       </ul>
     </div>
