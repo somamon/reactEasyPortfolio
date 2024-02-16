@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDocs, collection, onSnapshot, deleteDoc } from 'firebase/firestore';
-import { db } from '../firebase'; 
+import { db, auth} from '../firebase'; 
 
 const Home = () => {
   const [concepts, setConcepts] = useState([]);
@@ -38,7 +38,7 @@ const Home = () => {
       <h2>ホーム</h2>
       <ul>
         {concepts.map((concept) => (
-          <li key={concept.id}>{concept.conceptValue}{concept.author.username}<button onClick={() => handleDelete(concept.id)}>概念を忘れ去る</button></li>
+          <li key={concept.id}>{concept.conceptValue}{concept.author.username}{concept.author.id === auth.currentUser?.uid && (<button onClick={() => handleDelete(concept.id)}>概念を忘れ去る</button>)}</li>
         ))}
       </ul>
     </div>
