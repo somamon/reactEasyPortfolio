@@ -39,10 +39,9 @@ const Home = () => {
   return (
     <div className='read-content'>
       <h2>サイト説明</h2>
-      <p>CreateConceptは、"概念"を作成するのを手伝うサイトです。</p>
-      <p>あなたが好きなものを入力すると、それに付随した文言がランダムで追加されます。</p>
-      <p>例:カラオケと入力すると、"カラオケを探求する"という文言が表示される</p>
-      <p>ぜひCreateConceptで新しい概念を探してみましょう</p>
+      <p>CreateConceptは、新しい視点を発見するのを手伝うサイトです。</p>
+      <p>あなたが好きなものを入力すると、文言がランダムで追加されます。</p>
+      <p>ぜひCreateConceptで新しい視点を探してみましょう</p>
       <div className='read-content-homeicon'><FontAwesomeIcon icon={faHouse}  style={{ width: '300px', height: '300px' }} /></div>
       <p>新概念</p>
       <ul>
