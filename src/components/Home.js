@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { doc, getDocs, collection, onSnapshot, deleteDoc } from 'firebase/firestore';
+import { doc, getDocs, collection, onSnapshot, deleteDoc, query,  orderBy } from 'firebase/firestore';
 import { db, auth} from '../firebase'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import "./Home.css"
@@ -11,9 +11,9 @@ const Home = () => {
   useEffect(() => {
     const getConcepts = async () => {
       const conceptsCollection = collection(db, 'concepts'); // 'concepts'はFirestoreのコレクション名
-
+      const conceptsCollectionSort = query(conceptsCollection, orderBy("timestamp", "desc")); //コレクションをソートする
       try {
-        const querySnapshot = await getDocs(conceptsCollection);
+        const querySnapshot = await getDocs(conceptsCollectionSort);
         const fetchedConcepts = [];
         querySnapshot.forEach((doc) => {
           fetchedConcepts.push({ id: doc.id, ...doc.data() });
